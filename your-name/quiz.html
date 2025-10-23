@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Your Name</title>
+    <link rel="stylesheet" href="css/style.css"> <!--Lien entre le fichier HTML et CSS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap" rel="stylesheet"> <!--cette ligne et les deux précédentes permettent d'importer la police d'écriture 'poppins' de puis google fonts-->
+    <link rel="shortcut icon" href="Pictures/Site_Icon.ico" type="image/icon"><!--ligen permettant ed mettre une photo personalisée au niveau de l'icon d'onglet internet-->
+</head>
+<body>
+
+    <!--Création de la barre de navigation-->
+    <header class="navbar"><!--class permet d'identifier tous les objets par .nomdelaclasse dans le css pour n'appliquer les modifications qu'a certains éléments-->
+        <h2 class="logo">Quiz</h2>
+        <nav class="navigation">
+            <a href="index.html" >Home<span></span></a><!--la classe active permet la mise en surbrillance dans le css-->
+            <!--span est l'équivalent d'un div mais à l'intérieur d'un élément, ici on ne rentre rien car tous se passera dans le css: il servira pour créér un fond qui s'activera au passage de la souris-->
+            <a href="info.html">Info<span></span></a>
+            <a href="quiz.html" class="active">Quiz<span></span></a>
+        </nav>
+    </header>
+
+    <section class="fondpagequiz">
+        <h2 id="text">Le quiz</h2>
+    </section>
+    
+    <section class="titre_sous_partie">
+        <h2 id="info">Les règles</h2><br>
+    </section>
+
+    <section class="règles">
+        <div class="text_box_quiz">
+            <p class="texte_du_text_box">Une série de dix questions va vous être posée juste ci dessous. Pour chaque question
+                cocher la réponse qui vous semble être la bonne. A la fin du quiz, vérifier toutes vos réponses puis cliquez sur le boutton "valider". 
+            </p>
+        </div>
+    </section>
+
+    <!--Question 1-->
+
+    <section class="question 1">
+        <h3 id="titrequestion">Question numéro 1:<br>
+            Qui est le réalisateur de Your Name ?
+        </h3>
+    </section>
+    
+    <!--création des différentes réponses accompagnées de photos-->
+    <section class="reponsequestion 1">
+        <div class="rep">
+            <img src="Pictures/MakotoShinkai.jpg" alt="Makoto Shinkai"><br>
+            <input type="radio" name="realisateur" value="Shinkai" id="Shinkai"><!--on créer un élément <input> dont l'attribut type vaut radio. Il permet de construire des groupes d'options parmi lesquelles on ne peut choisir qu'une valeur(ici notre réponse), on lui attribue une valeur (qui sera vérifiée pour la bonne réponse), une id pour le récupérer en javascript et un nom permettant de connaitre la question à laquelle il appartient-->
+            <label for="Shinkai">Makoto Shinkai</label><!--l'élément label permet d'accompagner notre bouton d'un texte indiquant la réponse-->
+        </div>
+       
+        <div class="rep">
+            <img src="Pictures/Myazaki.jpg" alt="Myazaki"><br>
+            <input type="radio" name="realisateur" value="Myazaki" id="Myazaki">
+            <label for="Myazaki">Hayao Myazaki</label>
+        </div>
+        
+        <div class="rep">
+            <img src="Pictures/Mamoru-Hosoda.webp" alt="Hosoda"><br>
+            <input type="radio" name="realisateur" value="Hosoda" id="Hosoda">
+            <label for="Hosoda">Mamoru Hosoda</label>
+        </div>
+        
+        <div class="rep">
+            <img src="Pictures/Real_jvmtp.jpg" alt="Ushijima"><br>
+            <input type="radio" name="realisateur" value="Ushijima" id="Ushijima">
+            <label for="Ushijima">Shinichiro Ushijima</label>
+        </div>
+    </section>
+
+    <!--Question 2-->
+
+    <section class="question 2">
+        <h3 id="titrequestion">Question numéro 2:<br>
+            Quelles sont les noms des personnages principaux ?
+        </h3>
+    </section>
+    
+    <section class="illustrationQuestion"><img id="personnagesquestion2" src="Pictures/Photo_perso.jpg" alt="Photo des deux personnages"></section>
+
+    <section class="reponsequestion 2">
+        
+        <div class="rep">
+            <input type="radio" name="personnages" value="Takao" id="Takao">
+            <label for="Takao">Takao et Mino</label>
+        </div>
+       
+        <div class="rep">
+            <input type="radio" name="personnages" value="Masha" id="Masha">
+            <label for="Masha">Masha et Michka</label>
+        </div>
+        
+        <div class="rep">
+            <input type="radio" name="personnages" value="Mitsuha" id="Mitsuha">
+            <label for="Mitsuha">Mitsuha et Taki</label>
+        </div>
+        
+        <div class="rep">
+            <input type="radio" name="personnages" value="Youri" id="Youri">
+            <label for="Youri">Youri et Clara</label>
+        </div>
+
+    </section>
+
+    <!--Question 3 (input type=number, zone ou l'on ne pourra que répondre par des chiffres, ici on attend une date.)-->
+    <section class="question 3">
+        <h3 id="titrequestion">Question numéro 3:<br>
+            En quelle année Your Name est-il sortit au cinéma ?<br>
+            Réponse attendu sous forme de chiffre (ex : 1998)
+        </h3>
+    </section>
+    
+    <section class="illustrationQuestion"><img src="Pictures/Your-name-cinema.jpg" alt="cinema" id="cinema"></section>
+
+    <div class="repInputNumber">
+        <input type="number" name="date" id="date">
+    </div>
+
+    <!--Question 4-->
+    <section class="question 4">
+        <h3 id="titrequestion">Question numéro 4:<br>
+            Lequel de ces personnages habite à Tōkyō ?
+        </h3>
+    </section>
+
+    <section class="reponsequestion 4">
+        <div class="rep">
+            <img src="Pictures/Taki.jpg" alt="Taki"><br>
+            <input type="radio" name="tokyo" value="Taki" id="Taki">
+            <label for="Taki">Taki</label>
+        </div>
+       
+        <div class="rep">
+            <img src="Pictures/Mitsuha.jpg" alt="Mitsuha"><br>
+            <input type="radio" name="tokyo" value="Mitsu" id="Mitsu">
+            <label for="Mitsu">Mitsuha</label>
+        </div>
+        
+        <div class="rep">
+            <img src="Pictures/Lesdeux.jpg" alt="Les deux"><br>
+            <input type="radio" name="tokyo" value="Lesdeux" id="Lesdeux">
+            <label for="Lesdeux">Les deux</label>
+        </div>
+        
+        <div class="rep">
+            <img src="Pictures/Aucun.jpg" alt="Aucun"><br>
+            <input type="radio" name="tokyo" value="Aucun" id="Aucun">
+            <label for="Aucun">Aucun</label>
+        </div>
+    </section>
+
+    <!--Question 5-->
+    <section class="question 5">
+        <h3 id="titrequestion">Question numéro 5:<br>
+            Avec qui Mitsuha vit-elle ?
+        </h3>
+    </section>
+
+    <section class="illustrationQuestion"><img src="Pictures/Mitsuha_chambre.jpg" alt="chambre" id="chambre"></section>
+
+    <section class="reponsequestion 5">
+        <div class="rep">
+            <input type="radio" name="vivre" value="pere" id="pere">
+            <label for="pere">Son Père</label>
+        </div>
+       
+        <div class="rep">
+            <input type="radio" name="vivre" value="grandmere" id="grandmere">
+            <label for="grandmere">Sa grand-mère et sa petite soeur</label>
+        </div>
+        
+        <div class="rep">
+            <input type="radio" name="vivre" value="parents" id="parents">
+            <label for="parents">Ses parents et son petit frère</label>
+        </div>
+        
+        <div class="rep">
+            <input type="radio" name="vivre" value="mere" id="mere">
+            <label for="mere">Sa mère</label>
+        </div>
+    </section>
+
+    <!--Creation question 6 (input type=texte, zone rempli par du texte)-->
+    <section class="question 6">
+        <h3 id="titrequestion">Question numéro 6:<br>
+            Quel est le nom japonais de Your Name ?<br>
+            (Par exemple "L'attaque des titants" devient "Shingeki No Kyojin")
+        </h3>
+    </section>
+
+    <section class="illustrationQuestion"><img src="Pictures/Question_titre.jpg" alt="pochette titre japon" id="titre_question"></section>
+
+    <div class="repInputNumber">
+        <input type="text" name="rep_titre" id="rep_titre">
+    </div>
+
+    <!--question 7-->
+    <section class="question 7">
+        <h3 id="titrequestion">Question numéro 7:<br>
+            Quelle terrible catastrophe détruit la ville d'Itomori ?<br>
+        </h3>
+    </section>
+
+    <section class="illustrationQuestion"><img src="Pictures/Lac.jpg" alt="Lac" id="Lac"></section>
+
+    <section class="reponsequestion 7">
+        <div class="rep">
+            <input type="radio" name="cause" value="tornade" id="tornade">
+            <label for="tornade">Une tornade</label>
+        </div>
+       
+        <div class="rep">
+            <input type="radio" name="cause" value="incendie" id="incendie">
+            <label for="incendie">Un incendie de forêt</label>
+        </div>
+        
+        <div class="rep">
+            <input type="radio" name="cause" value="tsunami" id="tsunami">
+            <label for="tsunami">Un tsunami</label>
+        </div>
+        
+        <div class="rep">
+            <input type="radio" name="cause" value="meteorite" id="meteorite">
+            <label for="meteorite">La chute d'une météorite</label>
+        </div>
+    </section>
+
+    <!--Question 8-->
+    <section class="question 8">
+        <h3 id="titrequestion">Question numéro 8:<br>
+            Quand ce terrible événement s'est-il déroulé ?<br>
+        </h3>
+    </section>
+
+    <section class="illustrationQuestion"><img src="Pictures/Taki_Sky.jpg" alt="Ciel" id="Ciel"></section>
+
+    <section class="reponsequestion 7">
+        <div class="rep">
+            <input type="radio" name="duree" value="3+" id="3+">
+            <label for="3+">Trois ans après les événements vécus par Mitsuha</label>
+        </div>
+       
+        <div class="rep">
+            <input type="radio" name="duree" value="3-" id="3-">
+            <label for="3-">Trois ans avant les événements vécus par Taki</label>
+        </div>
+        
+        <div class="rep">
+            <input type="radio" name="duree" value="5+" id="5+">
+            <label for="5+">Cinq ans après les événements vécus par Mitsuha</label>
+        </div>
+        
+        <div class="rep">
+            <input type="radio" name="duree" value="5-" id="5-">
+            <label for="5-">Cinq ans avant les événements vécus par Taki</label>
+        </div>
+    </section>
+
+     <!--Question 9-->
+     <section class="question 9">
+        <h3 id="titrequestion">Question numéro 9:<br>
+            À quel moment les deux héros échangent-ils leur place ?<br>
+        </h3>
+    </section>
+
+    <section class="illustrationQuestion"><img src="Pictures/Echange.jpg" alt="Echange" id="Echange"></section>
+
+    <section class="reponsequestion 7">
+        <div class="rep">
+            <input type="radio" name="maniere" value="eau" id="eau">
+            <label for="eau">Quand ils tombent dans l'eau</label>
+        </div>
+       
+        <div class="rep">
+            <input type="radio" name="maniere" value="texto" id="texto">
+            <label for="texto">Quand ils s'envoient un texto</label>
+        </div>
+        
+        <div class="rep">
+            <input type="radio" name="maniere" value="dodo" id="dodo">
+            <label for="dodo">Quand ils dorment</label>
+        </div>
+        
+        <div class="rep">
+            <input type="radio" name="maniere" value="regard" id="regard">
+            <label for="regard">Quand leurs regards se croisent</label>
+        </div>
+    </section>
+
+    <!--Question 10 (création avec select, permet de créer un menu déroulant de réponse)-->
+    <section class="question 10">
+        <h3 id="titrequestion">Question numéro 10 :<br>
+            Les deux héros communiquent de diverses façons.
+Parmi les propositions suivantes, quelle est la seule chose qu'ils NE font PAS ?<br>
+        </h3>
+    </section>
+
+    <section class="illustrationQuestion"><img src="Pictures/Communication.jpg" alt="Communication Metro" id="Communication"></section>
+
+    <!--je  crée mon menu déroulant avec select-->
+    <section class="question10">
+    <select name="q10rep" id="q10rep">
+        <option value="information">cliquez pour choisir une réponse</option>
+        <option value="magneto">Ils se laissent des messages enregistrés sur magnétophone</option><!--on créer nos différentes réponses avec la balise option-->
+        <option value="journal">Ils se laissent des messages dans le journal de leur téléphone</option>
+        <option value="stylo">Ils se laissent des messages écrits au feutre sur leur corps</option>
+    </select>
+    </section>
+
+
+
+    <!--création bouton valider-->
+    <section class="bouton">
+        <button class="btn bquiz" id="btn_rep_quiz" onclick="check();" >Valider</button><!--au clique on appel une fonction qui va checker et afficher les résultats-->
+    </section>
+
+    <section class="indicationResultats">
+        <p><span id="input_inforesultats"></span></p><!--on crée un span vide dans lequelle on enverra du texte depuis le javascript au clique sur le bouton valider-->
+    </section>
+
+    <section class="fondpageresultat">
+        <h2 id="text">Tes résultats</h2>
+    </section>
+
+    <section class="titre_sous_partie">
+        <h2 id="info">Bilan du quiz</h2><br>
+    </section>
+
+    <section class="donneesResultats">
+        <p><span id="input_resultats"></span></p><br>
+        
+        <section class="fondpageresultatparquestion">
+            <h2 id="textq">Question n°1</h2>
+        </section>
+
+        <p><span class="bilan" id="bilanquestion1"></span></p>
+
+        <section class="fondpageresultatparquestion">
+            <h2 id="textq">Question n°2</h2>
+        </section>
+
+        <p><span class="bilan" id="bilanquestion2"></span></p>
+        
+        <section class="fondpageresultatparquestion">
+            <h2 id="textq">Question n°3</h2>
+        </section>
+
+        <p><span class="bilan" id="bilanquestion3"></span></p>
+        
+        <section class="fondpageresultatparquestion">
+            <h2 id="textq">Question n°4</h2>
+        </section>
+        
+        <p><span class="bilan" id="bilanquestion4"></span></p>
+        
+        <section class="fondpageresultatparquestion">
+            <h2 id="textq">Question n°5</h2>
+        </section>
+        
+        <p><span class="bilan" id="bilanquestion5"></span></p>
+        
+        <section class="fondpageresultatparquestion">
+            <h2 id="textq">Question n°6</h2>
+        </section>
+        
+        <p><span class="bilan" id="bilanquestion6"></span></p>
+        
+        <section class="fondpageresultatparquestion">
+            <h2 id="textq">Question n°7</h2>
+        </section>
+        
+        <p><span class="bilan" id="bilanquestion7"></span></p>
+        
+        <section class="fondpageresultatparquestion">
+            <h2 id="textq">Question n°8</h2>
+        </section>
+        
+        <p><span class="bilan" id="bilanquestion8"></span></p>
+        
+        <section class="fondpageresultatparquestion">
+            <h2 id="textq">Question n°9</h2>
+        </section>
+
+        <p><span class="bilan" id="bilanquestion9"></span></p>
+        
+        <section class="fondpageresultatparquestion">
+            <h2 id="textq">Question n°10</h2>
+        </section>
+        
+        <p><span class="bilan" id="bilanquestion10"></span></p>
+
+
+
+
+    </section>
+
+    <section class="bouton">
+        <button class="btn bquiz" onclick="window.location.href = 'index.html';">Home</button><!--onclick permet d'indiquer qu'au clique de l'utilisateur on charge la page indiquée-->
+        <button class="btn binfo" onclick="window.location.href = 'info.html';">Info</button>
+    </section>
+    
+
+    <script src="https://unpkg.com/scrollreveal"></script><!--j'importe une bibliothèque javascript permettant la mise en place d'animations de manière extrêmement simple (voir le fichier javascript)-->
+    <script src="js/script.js"></script><!--je lie mon fichier javascript à celui html-->
+    
+
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Les aventures de Locona</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap">
+  <style>
+    :root {
+      --primary: #ffbb00;
+      --secondary: #ffd86b;
+      --dark: #081014;
+      --light: #f5f5f5;
+      --glass: rgba(255, 255, 255, 0.03);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Space Mono', monospace;
+      color: var(--light);
+      line-height: 1.5;
+      background: linear-gradient(135deg, #071520 0%, #0a1f2a 100%);
+      padding: 1rem;
+      min-height: 100vh;
+    }
+
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    .video-overlay {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(7,21,32,0.7), rgba(7,21,32,0.85));
+      z-index: -1;
+    }
+
+    .container {
+      padding: 1rem;
+      margin: 0.5rem;
+      background: var(--glass);
+      border-radius: 1rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .lead {
+      font-size: 0.95rem;
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    section {
+      background: rgba(0,0,0,0.2);
+      border-radius: 0.75rem;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      color: var(--primary);
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0.5rem;
+    }
+
+    li {
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    li::before {
+      content: "•";
+      color: var(--secondary);
+    }
+
+    .tech-stack {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tech-item {
+      background: rgba(255,187,0,0.1);
+      padding: 0.4rem 0.8rem;
+      border-radius: 1rem;
+      font-size: 0.85rem;
+      color: var(--secondary);
+    }
+
+    .event-note {
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 1.5rem;
+      background: rgba(0,0,0,0.2);
+      border-radius: 0.75rem;
+    }
+
+    .event-note a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-top: 1.5rem;
+      padding: 0.875rem;
+      background: var(--primary);
+      color: var(--dark);
+      text-decoration: none;
+      border-radius: 2rem;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    .btn:active {
+      background: var(--secondary);
+      transform: scale(0.98);
+    }
+
+    /* Styles pour la section vidéo */
+    .video-section {
+      width: 100%;
+      margin-bottom: 1.5rem;
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(0,0,0,0.2);
+    }
+
+    .video-section video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <video id="bg-video" autoplay muted loop playsinline>
+    <source src="video/Locona.mp4" type="video/mp4">
+  </video>
+  <div class="video-overlay"></div>
+
+  <div class="container">
+    <h1>Les aventures de Locona</h1>
+    <p class="lead">Un jeu d'action-plateforme rétro développé en Python avec Pyxel</p>
+
+    <div class="video-section">
+      <video controls autoplay muted loop playsinline>
+        <source src="video/Locona.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <section>
+      <h2>Le projet</h2>
+      <ul>
+        <li>Jeu de plateforme en 2D avec système de tir dynamique</li>
+        <li>Réalisé de A à Z en une session de 6h de code avec deux amis</li>
+        <li>Première expérience de développement de jeu</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Technologies</h2>
+      <div class="tech-stack">
+        <span class="tech-item">Python</span>
+        <span class="tech-item">Pyxel Engine</span>
+        <span class="tech-item">Pixel Art</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Contrôles</h2>
+      <ul class="controls">
+        <li>Q/D : Se déplacer à gauche/droite</li>
+        <li>ESPACE : Sauter</li>
+        <li>FLÈCHE HAUT : Tirer</li>
+        <li>ÉCHAP : Quitter</li>
+      </ul>
+    </section>
+
+    <div class="event-note">
+      <p>Projet réalisé dans le cadre de la <strong>Nuit du Code 2024</strong><br>
+      <a href="https://www.nuitducode.net/" target="_blank" rel="noopener">En savoir plus sur l'événement</a></p>
+    </div>
+
+    <a href="index.html" class="btn">← Retour à l'accueil</a>
+  </div>
+</body>
+</html>

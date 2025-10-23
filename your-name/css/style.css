@@ -1,0 +1,625 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;} /* "*" permet de modifier tous les éléments avec les paramètres mis entre {} */
+    /* on modifie la partie body */
+    body{
+        min-height: 100vh;/*100vw= 100% de la largeur d'écran ; 100vh=100% de la hauteur de l'ecran;*/
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    /* on modifie le header (la barre de navigation*/
+    header{
+        position: absolute; /*La propriété position définit la façon dont un élément est positionné dans un document. */
+        top: 0;             /*Avec "absolute" l'élément est retiré du flux normal et aucun espace n'est créé pour l'élément sur la page. Il est ensuite positionné par rapport à son ancêtre le plus proche qui est positionné s'il y en a un ou par rapport au bloc englobant initial sinon. La position finale de l'élément est déterminée par les valeurs de top, right, bottom et left.*/
+        left: 0;
+        width: 100%;        /*on gère la taille de l'élément en largeur*/
+        padding: 20px; /*Padding permet de définir les différents écarts de remplissage sur les quatre côtés d'un élément*/
+        display: flex; /*définit le type d'affichage utilisée pour le rendu d'un élément et la disposition utilisée pour ses éléments*/
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 100; /*La propriété z-index définit le « z-order ». Lorsque des éléments se chevauchent, le z-order détermine l'ordre des différentes couches que formeront les éléments. Généralement, un élément couvrira un autre élément si sa valeur de z-index est supérieure à celle du deuxième élément.*/
+    }
+    /*on modifie notre texte logo*/
+    .logo {
+        font-size: 1.5em; /*on gère la taille de la police; em est utilisé afin de marquer un texte sur lequel on veut insister*/
+        color: #fff; /*change la couleur de l'élément*/
+        user-select: none;/* permet de contrôler l'opération de sélection, ici aucunne*/
+        margin-bottom: 10px;
+    }
+    /*on modifie la forme de nos textes liens*/
+    .navigation {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .navigation a {
+        position: relative;/*Avec relative l'élément est positionné dans le flux normal du document puis décalé, par rapport à lui-même, selon les valeurs fournies par top, right, bottom et left. Le décalage n'a pas d'impact sur la position des éléments.*/
+        font-size: 1.1em;
+        color: #fff;
+        font-weight: 600;/*on change le poids (l'épaisseur) de la police d'écriture*/
+        text-decoration: none;/*on enlève la décoration(pour un lien le soulignement et le bleu) du texte*/
+        margin: 5px 0;
+        width: 80%;
+        text-align: center;
+        padding: 6px 15px;
+        transition: .5s;/*on enregistre un temps qui sera utile pour l'animation avec hoover*/
+    }
+    /*hoover permet de modifier l'éléments au passage de la souris*/
+    .navigation a:hover,
+    .navigation a.active {
+        color: #333;
+    }/*ici le texte devient noir quand la souris passe ou losrqu'on se trouve sur l'onglet (class='active')*/
+    /*on utilise le span vide en html pour créer un fond qui apparaitra au survol de la souris*/
+    .navigation a span{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        border-radius: 30px;/*on modifie l'arrondie des angles de l'éléments*/
+        z-index: -1;/*grace au z index -1 on indique bien que l'élément se trouvera derrière le texte*/
+        transform: scale(0);/*on définie sa taille a nul, sans survol il n'apparait pas*/
+        opacity: 0;/*l'éléments n'a pas d'opacité non plus*/
+        transition: .5s;
+    }
+    /*on créer une animation; au survol de la souris notre fond span, en 5s apparait en reprenant sa taille et son opacité première, de plus quand on se trouve sur l'onglet l'élément reste visible*/
+    .navigation a:hover span,
+    .navigation a.active span{
+        transform: scale(1);
+        opacity: 1;
+    } 
+
+    .parallax{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+        text-align: center;
+        background: url(Pictures/background_2_4k.png) no-repeat;/*importation d'une image de fond pour notre section, on défini sa position sa taille et comment elle agit au scroll*/
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    #text {
+        position: absolute;
+        font-size: 3em;
+        color: #fff;
+        text-align: center;
+        width: 100%;
+        
+    }
+    
+    #text2 {
+        position: absolute;
+        transform: translateY(40px);
+        font-size: 1.5em;
+        color: #fff;
+    }
+
+    html {
+        background-color: #1b283a; /*on modifie la couleur de fond du site*/
+        overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+    border-radius:10px ;
+     background-color: #022b69;
+    } /*code permettant de modifier la barre de scroll*/
+
+    .titre_sous_partie {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        background-color: #1b283a;
+        height: 20vh;
+        width: 100%;
+        text-align: center;
+    }
+
+    #info {
+        padding-top: 20px;
+        color:#fff;
+        font-size: 2em;
+    }
+
+    .film{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+   .pochettefilm {
+    border-radius: 30px;
+    max-width: 100%;
+    max-height: auto;
+   }
+
+   .imagefilm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 90vw;
+    padding: 20px;
+   }
+
+   .text_box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);/*on défini un effet de flou pour notre fond*/
+    max-width: 90vw;
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.1);/*on créer une bordure pour la text box*/
+    border-radius: 10px;
+    transform: none;
+    margin: 20px;
+    text-align: center;
+   }
+
+   .texte_du_text_box {
+    color: #fff;
+   }
+   
+   .bouton {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+   }
+
+   .btn {
+    font-size: 1em;
+    font-weight: bold;/*on met notre texte en gras*/
+    background: none;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    text-transform: uppercase;/*le texte est automatiquement mis en majuscule*/
+    color: #fff;
+    padding: 12px 20px;
+    min-width: 150px;
+    margin: 20px 10px;
+    cursor: pointer;/*on définit que quand notre souris passe sur l'élément elle prend la forme d'un curseur de choix*/
+    transition: color 0.4s linear;
+    position: relative;
+   }
+
+   .btn:hover{
+    color: #000;
+   }
+
+   .btn::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: -1;
+    transition: transform 0.5s;
+    transform-origin: 0 0;/*on détermine que l'animation viendra du dessus*/
+    transition-timing-function: cubic-bezier(0.5,1.6,0.4,0.7);/*grace au site cubique bezier on obtient une courbe de vitesse de l'animation*/
+    }
+    /*::Before sert à définir ce qu'il se trouve avant le hoover*/
+    .bquiz::before {
+        transform: scaleY(0);
+    }
+
+    .binfo::before{
+        transform: scaleY(0);
+    }
+
+    .bquiz:hover::before {
+        transform: scaleY(1);
+    }
+
+    .binfo:hover::before {
+        transform: scaleY(1);
+    }
+
+    /*Css page numéro quiz*/
+    .fondpagequiz {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+        background: url(Pictures/Fond_answer.png) no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: scroll;
+    
+    }
+
+    .règles {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+    }
+
+    .text_box_quiz {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);/*on défini un effet de flou pour notre fond*/
+        max-width: 90vw;
+        padding: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.1);/*on créer une bordure pour la text box*/
+        border-radius: 10px;
+        transform:translateY(-50px)
+       }
+
+    .question{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+    }
+
+    #titrequestion{
+        color: #fff;
+        font-size: 1.4em;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+
+    .reponsequestion {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+    }
+
+    .rep {
+        float: center;
+        width: 90%;
+        margin: 10px 0; 
+        overflow: hidden;
+        display: block;
+        color: black;
+        padding: 15px 25px;
+        text-align: center;
+    }
+    
+    .rep img {
+        border-radius: 20px;
+        max-width: 100%;
+        height: auto;
+        margin: 20px;
+    }
+
+    input[type="radio"] {
+        display: none;
+
+    }
+
+    label{
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 20px;
+        padding: 10px 30px;
+        border: 2px solid #fff;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    input[type="radio"]:checked + label {
+        background-color: #022b69;
+        color: #fff;
+    }
+
+    .fondpageresultat {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: url(Pictures/Fond_answer.png) no-repeat;/*importation d'une image de fond pour notre section, on défini sa position sa taille et comment elle agit au scroll*/
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    
+    }
+
+    #input_resultats{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 2em;
+    }
+
+    #input_inforesultats{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 2em;
+    }
+
+    #personnagesquestion2 {
+        border-radius: 30px;
+        max-width: 60%;
+        max-height: auto;
+       }
+    
+       .illustrationQuestion{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 100vw;
+        padding: 20px;
+       }
+
+       .bilan {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 1.5em;
+        margin: 10px 10px;
+    }
+       
+    .illustrationquestion{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 100vw;
+        padding: 20px;
+       }
+
+       #cinema {
+        border-radius: 30px;
+        max-width: 50%;
+        max-height: auto;
+       }
+
+       input[type="number"]{
+        width: 80%;
+        padding: 15px 10px;
+        text-align: center;
+        border: 2px solid #fff;
+        border-radius: 20px;
+        margin: 20px;
+       }
+
+       .repInputNumber{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+       }
+
+       #chambre{
+        border-radius: 30px;
+        max-width: 100%;
+        max-height: auto;
+       }
+
+       #titre_question {
+        border-radius: 30px;
+        max-width: 30%;
+        max-height: auto;
+       }
+
+       input[type="text"]{
+        width: 80%;
+        padding: 15px 10px;
+        text-align: center;
+        border: 2px solid #fff;
+        border-radius: 20px;
+        margin: 20px;
+       }
+
+       #Lac {
+        border-radius: 30px;
+        max-width: 50%;
+        max-height: auto;
+       }
+
+       #Ciel {
+        border-radius: 30px;
+        max-width: 100%;
+        max-height: auto;
+       }
+
+       #Echange {
+        border-radius: 30px;
+        max-width: 100%;
+        max-height: auto;
+       }
+
+       #Communication {
+        border-radius: 30px;
+        max-width:  50%;
+        max-height: auto;
+       }
+
+       .question10 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+       }
+
+       #q10rep {
+        width: 80%;
+        border-radius: 30px;
+        padding: 10px 10px;
+       }
+
+       .fondpageresultatparquestion {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50vh;
+        
+    
+    }
+
+    #textq {
+        position: absolute;
+        font-size: 3em;
+        color: #fff;
+        
+    }
+
+    /*Css page info*/
+
+    .fondpageinfo {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+        background: url(Pictures/Fondpageinfo.jpg) no-repeat;/*importation d'une image de fond pour notre section, on défini sa position sa taille et comment elle agit au scroll*/
+        background-size: cover;
+        background-position: center;
+        background-attachment: scroll;
+        text-align: center;
+    }
+
+    .resume{
+        height: auto;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .texte_resume {
+        color: #fff;
+        padding: 80px 20px;
+        text-align: center;
+    }
+
+    .fondpageresume1 {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+        width: 100%;
+        background: url(Pictures/Mitsu_gm_soeur.png) no-repeat;/*importation d'une image de fond pour notre section, on défini sa position sa taille et comment elle agit au scroll*/
+        background-size: cover;
+        background-position: center;
+        background-attachment: scroll;
+        text-align: center;
+    }
+
+    #titreresume{
+        color: #fff;
+        font-size: 2em;
+    }
+
+    
+    .fondpageresume2 {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+        width: 100%;
+        background: url(Pictures/Tokyo.png) no-repeat;/*importation d'une image de fond pour notre section, on défini sa position sa taille et comment elle agit au scroll*/
+        background-size: cover;
+        background-position: center;
+        background-attachment: scroll;
+        text-align: center;
+    }
+
+    .fondpageresume3 {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+        width: 100%;
+        background: url(Pictures/RDV.jpg) no-repeat;/*importation d'une image de fond pour notre section, on défini sa position sa taille et comment elle agit au scroll*/
+        background-size: cover;
+        background-position: center;
+        background-attachment: scroll;
+        text-align: center;
+    }
+
+    .fondpageresume4 {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+        width: 100%;
+        background: url(Pictures/Explsosion.jpg) no-repeat;/*importation d'une image de fond pour notre section, on défini sa position sa taille et comment elle agit au scroll*/
+        background-size: cover;
+        background-position: center;
+        background-attachment: scroll;
+        text-align: center;
+    }
+
+    .fondpageresume5 {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+        width: 100%;
+        background: url(Pictures/Communication.jpg) no-repeat;/*importation d'une image de fond pour notre section, on défini sa position sa taille et comment elle agit au scroll*/
+        background-size: cover;
+        background-position: center;
+        background-attachment: scroll;
+        text-align: center;
+    }
+
+    .fondpageresume6 {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+        width: 100%;
+        background: url(Pictures/Frustration.webp) no-repeat;/*importation d'une image de fond pour notre section, on défini sa position sa taille et comment elle agit au scroll*/
+        background-size: cover;
+        background-position: center;
+        background-attachment: scroll;
+        text-align: center;
+    }
+
+
+    .fondpageresume7 {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+        width: 100%;
+        background: url(Pictures/Escalier.jpg) no-repeat;/*importation d'une image de fond pour notre section, on défini sa position sa taille et comment elle agit au scroll*/
+        background-size: cover;
+        background-position: center;
+        background-attachment: scroll;
+        text-align: center;
+    }

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Your Name</title>
+    <link rel="stylesheet" href="css/style.css"> <!--Lien entre le fichier HTML et CSS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap" rel="stylesheet"> <!--cette ligne et les deux précédentes permettent d'importer la police d'écriture 'poppins' de puis google fonts-->
+    <link rel="shortcut icon" href="Pictures/Site_Icon.ico" type="image/icon"><!--ligen permettant ed mettre une photo personalisée au niveau de l'icon d'onglet internet-->
+</head>
+<body>
+
+    <!--Création de la barre de navigation-->
+    <header class="navbar"><!--class permet d'identifier tous les objets par .nomdelaclasse dans le css pour n'appliquer les modifications qu'a certains éléments-->
+        <h2 class="logo">Quiz</h2>
+        <nav class="navigation">
+            <a href="index.html" class="active">Home<span></span></a><!--la classe active permet la mise en surbrillance dans le css-->
+            <!--span est l'équivalent d'un div mais à l'intérieur d'un élément, ici on ne rentre rien car tous se passera dans le css: il servira pour créér un fond qui s'activera au passage de la souris-->
+            <a href="info.html">Info<span></span></a>
+            <a href="quiz.html">Quiz<span></span></a>
+        </nav>
+    </header>
+
+    <!--création du titre central à l'arrivée sur le site-->
+    <section class="parallax"><!--Il existe une différence entre div et section assez compliqué à comprendre c'est pourquoi j'utilise seulement section pour mieux structurer mon code visuelement-->
+        <h2 id="text">君の名は</h2><!--id à la même utilitée que class, on récupère seulement les éléments par #nomdel'id et non .nomdelaclasse-->
+        <h5 id="text2">Kimi no na wa</h5>
+    </section>
+    <!--création du titre de la sous partie-->
+    <section class="titre_sous_partie">
+        <h2 id="info">Comment réaliser le quiz ?</h2><br>
+    </section>
+
+    <!--création de la partie explicative pour réalisation du quiz-->
+    <div class="film">
+        
+        <div class="text_box"><!--div permet de regrouper des éléments représentants une partie du site de maniere à pouvoir influer sur leurs paramètres à tous-->
+            <h3 class="texte_du_text_box">Le thème</h3>
+            <p class="texte_du_text_box">Le quiz aura donc pour objet le film Your Name (Kimi No Na Wa).
+                 Si vous avez déjà vu le film vous pouvez passer directement au quiz 
+                 en cliquant sur le bouton "Quiz" juste ci dessous.<br>
+                 Si vous n'avez pas encore vu le film vou avez accés à une fiche
+                 d'informations qui vous permettra de répondre aux questions du quiz.
+                 Vous pouvez aller la lire en cliquant sur le bouton "Info" ci dessous. </p>
+        </div>
+        <div class="imagefilm">
+            <img src="Pictures/yourname.jpg" alt="Pochette du film" class="pochettefilm">
+        </div>
+        
+    </div>
+
+    <!--création de deux boutons reliant à une autre page du site-->
+    <section class="bouton">
+        <button class="btn bquiz" onclick="window.location.href = 'quiz.html';">Quiz</button><!--onclick permet d'indiquer qu'au clique de l'utilisateur on charge la page indiquée-->
+        <button class="btn binfo" onclick="window.location.href = 'info.html';">Info</button>
+    </section>
+
+ 
+    <script src="https://unpkg.com/scrollreveal"></script><!--j'importe une bibliothèque javascript permettant la mise en place d'animations de manière extrêmement simple (voir le fichier javascript)-->
+    <script src="js/script.js"></script><!--je lie mon fichier javascript à celui html-->
+
+
+</body>
+</html>

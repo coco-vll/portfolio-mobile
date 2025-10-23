@@ -1,0 +1,570 @@
+/* Paramètres généraux */
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+*::selection{
+    background: #000101;
+    color: #fefeff;
+}
+
+[data-scroll-container] {
+	perspective: 1px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: monospace;
+    background: #000101;
+    color: #fefeff;
+    transition: 0.7s ease-in-out;
+}
+
+/* Mobile-first Typography */
+h1 {
+    font-size: clamp(2rem, 10vw, 8rem);
+    margin-top: 40px;
+    font-family: monospace, serif;
+    letter-spacing: 2px;
+    color: rgb(217, 217, 217);
+    font-weight: lighter;
+}
+
+h2 {
+    font-size: clamp(1.8rem, 8vw, 5rem);
+    text-align: center;
+    color: rgb(217, 217, 217);
+    font-family: monospace, serif;
+    letter-spacing: 2px;
+    font-weight: lighter;
+}
+
+.title {
+    font-size: clamp(2rem, 8vw, 6rem);
+    letter-spacing: 1px;
+    margin-bottom: 50px;
+    color: grey;
+}
+
+span {
+    display: inline-block;
+}
+
+a, a:visited {
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    color: #fefeff;
+    transition: 0.1s linear;
+    font-size: clamp(0.9rem, 3vw, 1.5rem);
+}
+
+a::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    background: #fefeff;
+    height: 1px;
+    bottom: -4px;
+    left: 0;
+    transform-origin: left;
+}
+
+a:hover {
+    transform: scale(1.04);
+    color: rgb(217, 217,217);
+}
+
+a:hover::after{
+    animation: animLink 1.4s infinite ease-in-out;
+}
+
+@keyframes animLink {
+    50%{
+        transform: scaleX(0.2);
+    }
+    100%{
+        transform: scaleX(1);
+    }
+}
+
+.img {
+    height: 70vw;
+    max-height: 395px;
+    width: 90vw;
+    max-width: 395px;
+    margin: 0 auto;
+    filter: grayscale(100%);
+    transition: 1.6s;
+}
+
+.img:hover {
+    filter: grayscale(10%);
+}
+
+.line{
+    height: 2px;
+    width: 90%;
+    margin: 0 auto;
+    background: #000101;
+    transition: 1s cubic-bezier(0.77,0,0.18,1);
+    transition-delay: 0.55s;
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.line-wrapper {
+    margin: 10px 0;
+}
+
+.line-wrapper.is-inview .line {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+.wrapper {
+    perspective: 900px;
+}
+
+.appear {
+    opacity: 0;
+    transform: translateY(100%) rotateX(-80deg);
+    transform-origin: top center;
+    transform-style: preserve-3d;
+    transition: 0.8s cubic-bezier(0.215,0.61,0.355,1);
+}
+
+.appear.is-inview {
+    transition-delay: 1s;
+    opacity: 1;
+    transform: none;
+}
+
+/* Header - Mobile First */
+header {
+    min-height: 100vh;
+    position: relative;
+    margin: 5vw;
+    padding: 20px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+#h1-wrapper {
+    transition-delay: 0.3s;
+}
+
+header h2 {
+    font-size: clamp(1.5rem, 7vw, 5rem);
+    margin: 15px 0;
+    text-align: center;
+}
+
+#h2-1 {
+    transition-delay: 0.9s;
+}
+
+#h2-2 {
+    transition-delay: 1.2s;
+}
+
+.scroll-wrapper {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 30px;
+    color: rgb(217, 217, 217);
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+}
+
+/* About Section - Mobile First */
+.about {
+    margin: 150px 0;
+    padding: 0 5vw;
+}
+
+.img1 {
+    background: url(img/IMG_20250313_175431.jpg) top/cover;
+}
+
+.h2-wrapper {
+    mix-blend-mode: exclusion;
+    margin: -100px 0 120px;  /* augmentation de la marge bottom */
+}
+
+.about p{
+    width: 90%;
+    min-width: 280px;
+    text-align: center;
+    margin: 40px auto 0;  /* ajout d'une marge top */
+    line-height: 1.8;
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    letter-spacing: 0.5px;
+}
+
+.download-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 0.85em;
+    font-weight: bold;
+    color: white;
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 50px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.download-btn:hover {
+    background-color: rgb(78, 78, 78);
+    transform: scale(1.05);
+}
+
+.download-btn::after {
+    display: none;
+}
+
+/* Skills Section - Mobile First */
+.skills {
+    margin: 150px 0;
+    padding: 0 5vw;
+}
+
+.skills h2 {
+    margin-bottom: 80px;
+}
+
+.skills .wrapper {
+    margin: 20px 0;
+}
+
+.skills .appear {
+    text-align: center;
+    transition-delay: 0.6s;
+}
+
+.skills p {
+    font-size: clamp(1.5rem, 8vw, 5rem);
+    font-family: monospace, serif;
+    letter-spacing: 2px;
+    background: #000101;
+    color: #fefeff;
+    display: inline-block;
+    padding: 8px 12px 12px;
+}
+
+/* Portfolio Section - Mobile First */
+.portfolio {
+    margin: 150px 0;
+    padding: 0 5vw;
+}
+
+.projects-container {
+    margin-top: 60px;
+}
+
+.project {
+    position: relative;
+    width: 90vw;
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+.project img {
+    transition: 0.4s ease-out;
+    width: 100%;
+}
+
+.project:hover img {
+    filter: brightness(20%);
+}
+
+.project:hover .project-info{
+    opacity: 1;
+    transform: translate(0,-50%);
+}
+
+.project-info {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    transition: 0.4s ease-out;
+    opacity: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.project-info a {
+    font-size: clamp(1.5rem, 6vw, 3rem);
+}
+
+.project-info p {
+    font-size: clamp(1rem, 4vw, 2rem);
+    margin-top: 10px;
+    color: #fefeff;
+}
+
+/* Contact Section - Mobile First */
+.contact-section {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px 30px;
+    border-radius: 20px;
+}
+
+.contact-section h2 {
+    color: gray;
+    margin-bottom: 15px;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: clamp(1rem, 4vw, 1.2rem);
+}
+
+.contact-info a {
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.contact-info a:hover {
+    color: grey;
+    transform: scale(1.05);
+}
+
+/* Expériences Section - Mobile First */
+.experiences {
+    padding: 0 5vw;
+}
+
+.container_exp .section-2 {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container_exp blockquote {
+    font-size: clamp(1rem, 4vw, 2.5vmin);
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container_exp .images-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 20px 8px;
+    gap: 15px;
+}
+
+.container_exp .images-container img {
+    width: 100%;
+    max-height: 60vh;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Media Queries - Tablet et Desktop */
+@media (min-width: 768px) {
+    h1 {
+        margin-top: 70px;
+        letter-spacing: 6px;
+    }
+
+    header {
+        margin: 2vw 2vw 0;
+    }
+
+    .about {
+        margin: 400px 0 250px;
+    }
+
+    .h2-wrapper {
+        margin: -220px 0 240px;  /* augmentation de la marge bottom en desktop */
+    }
+
+    .about p {
+        width: 70%;
+        line-height: calc(7px + 4.5vw);
+    }
+
+    .skills {
+        margin: 200px 0 250px;
+    }
+
+    .skills h2 {
+        margin-bottom: 150px;
+    }
+
+    .skills .wrapper {
+        margin: 30px 0;
+    }
+
+    .portfolio {
+        margin: 200px 0;
+    }
+
+    .projects-container {
+        margin-top: 100px;
+    }
+
+    .project {
+        margin: 50px 5vw;
+    }
+
+    #p1 {
+        margin-left: 6vw;
+    }
+
+    #p2 {
+        margin: 0 6vw 0 auto;
+    }
+
+    #p3 {
+        margin-left: 12vw;
+    }
+
+    .project-info {
+        left: 4vw;
+        transform: translate(-50px,-50%);
+    }
+
+    .contact-section {
+        padding: 40px 30px;
+    }
+
+    .container_exp .section-2 {
+        height: calc(300vh + 32px + 16px);
+        display: grid;
+        grid-template-columns: 40% 60%;
+        flex-direction: row;
+    }
+
+    .container_exp blockquote {
+        padding: 16px 16px 0 16px;
+    }
+
+    .container_exp .images-container {
+        margin-top: 16px;
+    }
+
+    .container_exp .images-container img {
+        max-height: 75vh;
+        height: 100%;
+        align-self: stretch;
+    }
+
+    .line {
+        width: 70%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .img {
+        height: 395px;
+        width: 100vw;
+        max-width: 395px;
+    }
+}
+
+/* Footer styles conservés */
+footer {
+    margin: 150px 0 120px; 
+}
+
+footer p {
+    font-size: calc(1rem + 2vw);
+    margin: 25px 0;
+    text-align: center;
+}
+
+#l2 {
+    transition-delay: 1.2s;
+}
+
+#l3 {
+    transition-delay: 1.6s;
+}
+
+footer a {
+    font-family: monospace, serif;
+    color: #000101;
+    font-size: calc(1rem + 2vw);
+}
+
+.img2 {
+    background: url(img/bill-gates-2.jpg) center/cover; 
+}
+
+/* Timeline et photos conservées */
+.timeline {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: black;
+    z-index: -1;
+}
+
+.photo{
+    width: 90vw;
+    height: 60vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-image: url(https://media.ouest-france.fr/v1/pictures/MjAxNDAxNzQ5MTQ1YzBlMjI0MzNhMzE2ODk0NzRmNzZiZjg2ZWU?width=1260&height=708&focuspoint=50%2C25&cropresize=1&client_id=bpeditorial&sign=67abcc42304a55ee4457e0e085592b925b4a288068f617add0de7fb04ad9da63);
+    background-color: #525252;
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center;
+    transition: all ease-in-out 1.5s;
+    margin: 5vw; 
+}
+
+@media (min-width: 768px) {
+    .photo {
+        width: 70vw;
+        height: 80vh;
+    }
+}
+
+#deux{
+    background-image: url(https://pbs.twimg.com/media/FMidExXXwAsyFm5.jpg);
+}
+
+#trois{
+    background-image: url(https://www.pagesjaunes.fr/media/agc/resize/325x550/e4/5b/71/00/00/d6/77/ba/84/ab/60c1e45b710000d677ba84ab/60c1e45b710000d677ba84ac.jpg);
+}
+
+.photo:hover{
+    transform: scale(1.1);
+}
