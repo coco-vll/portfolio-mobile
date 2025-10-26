@@ -96,7 +96,6 @@
         color: #fff;
         text-align: center;
         width: 100%;
-        
     }
     
     #text2 {
@@ -343,6 +342,10 @@
     
     }
 
+    .fondpageresultat h2{
+        
+    }
+
     #input_resultats{
         display: flex;
         justify-content: center;
@@ -478,8 +481,7 @@
         justify-content: center;
         align-items: center;
         height: 50vh;
-        
-    
+        text-align: center;
     }
 
     #textq {
@@ -488,6 +490,14 @@
         color: #fff;
         
     }
+
+    #res{
+        position: absolute;
+        font-size: 3em;
+        color: #fff;
+        text-align: center;
+    }
+
 
     /*Css page info*/
 

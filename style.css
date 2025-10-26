@@ -95,17 +95,11 @@ a:hover::after{
 }
 
 .img {
-    height: 70vw;
-    max-height: 395px;
+    height: 90vw;
+    max-height: auto;
     width: 90vw;
-    max-width: 395px;
+    max-width: auto;
     margin: 0 auto;
-    filter: grayscale(100%);
-    transition: 1.6s;
-}
-
-.img:hover {
-    filter: grayscale(10%);
 }
 
 .line{
@@ -494,77 +488,4 @@ header h2 {
     }
 }
 
-/* Footer styles conservés */
-footer {
-    margin: 150px 0 120px; 
-}
 
-footer p {
-    font-size: calc(1rem + 2vw);
-    margin: 25px 0;
-    text-align: center;
-}
-
-#l2 {
-    transition-delay: 1.2s;
-}
-
-#l3 {
-    transition-delay: 1.6s;
-}
-
-footer a {
-    font-family: monospace, serif;
-    color: #000101;
-    font-size: calc(1rem + 2vw);
-}
-
-.img2 {
-    background: url(img/bill-gates-2.jpg) center/cover; 
-}
-
-/* Timeline et photos conservées */
-.timeline {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background-color: black;
-    z-index: -1;
-}
-
-.photo{
-    width: 90vw;
-    height: 60vh;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    background-image: url(https://media.ouest-france.fr/v1/pictures/MjAxNDAxNzQ5MTQ1YzBlMjI0MzNhMzE2ODk0NzRmNzZiZjg2ZWU?width=1260&height=708&focuspoint=50%2C25&cropresize=1&client_id=bpeditorial&sign=67abcc42304a55ee4457e0e085592b925b4a288068f617add0de7fb04ad9da63);
-    background-color: #525252;
-    background-blend-mode: multiply;
-    background-size: cover;
-    background-position: center;
-    transition: all ease-in-out 1.5s;
-    margin: 5vw; 
-}
-
-@media (min-width: 768px) {
-    .photo {
-        width: 70vw;
-        height: 80vh;
-    }
-}
-
-#deux{
-    background-image: url(https://pbs.twimg.com/media/FMidExXXwAsyFm5.jpg);
-}
-
-#trois{
-    background-image: url(https://www.pagesjaunes.fr/media/agc/resize/325x550/e4/5b/71/00/00/d6/77/ba/84/ab/60c1e45b710000d677ba84ab/60c1e45b710000d677ba84ac.jpg);
-}
-
-.photo:hover{
-    transform: scale(1.1);
-}
